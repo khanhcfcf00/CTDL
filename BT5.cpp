@@ -13,22 +13,21 @@ void xuat_mang(float a[], int n) {
         cout << a[i] << "\n";
     }
 }
-void dem_so(float a[], int n) {
-    int count = 0;
-    cout << "cac phan tu co gia tri duong la: ";
-    for (int i = 0; i < n; i++) {
-        if (a[i] > 0)
-            cout << a[i]<<"\t";
-        count += 1;
+int demso(float a[],int n,int count=0, int i =0){
+    if(i>=n)
+        return count;
+    if(a[i]>0){
+        count++;
     }
-    cout << "\n mang co " << count << " phan tu co gia tri duong";
+    return demso(a,n,count,++i);
 }
 int main() {
-    float a[100];
+    float a[n];
     int n;
     cout << "nhap so phantu cua mang: ";
     cin >> n;
     nhap_mang(a, n);
     xuat_mang(a, n);
-    dem_so(a, n);
+    int i=0, count=0;
+    cout<< "co"<< demso(a, n, count, i)<<"phan tu co gia tri duong trong mang";
 }
